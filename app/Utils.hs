@@ -32,4 +32,13 @@ isEnemy cell currentPlayer = case cell ^. player of
     Just p  -> p /= currentPlayer  
     Nothing -> False     
 
+changeTurn :: GameState -> GameState
+changeTurn state = newState
+    where 
+        turn = state ^. turn
+        --
+        newState = 
+            | turn == P1 = P2 
+            | otherwise = P1
+
 
