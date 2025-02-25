@@ -38,7 +38,7 @@ changeTurn state = newState
         turn = state ^. turn
         --
         newState = 
-            | turn == P1 = P2 
-            | otherwise = P1
+            | turn == P1 = state & turn .~ P2 
+            | otherwise = state & turn .~ P1
 
 
